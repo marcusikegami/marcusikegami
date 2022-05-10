@@ -14,8 +14,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-- 🔭 I’m currently working on: Applying for Jr. Dev jobs!
-- 🌱 I’m currently learning: TypeScript
+- 🔭 I’m currently working on: A web app that utilizes shields.io to generate badges for use in markdown (as seen below)
+- 🌱 I’m currently learning: TypeScript, React-JSS
 
 ## Technology Stack
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
