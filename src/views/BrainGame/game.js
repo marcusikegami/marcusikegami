@@ -1,5 +1,4 @@
-import Typo from 'typo-js';
-var dictionary = new Typo("en_US", false, false, { dictionaryPath: "typo/dictionaries" }),
+import dictionary from './dictionary.json';
 
 export const letterGenerator = () => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -25,9 +24,13 @@ export const getWordScore = (word) => {
         score += getLetterScore(word[i]);
     }
     return score;
-}
-
-export const checkWord = (word) => {
-    const isWord = dictionary.check(word);
-    return isWord;
 };
+
+
+// Assuming dictionary.json is a json object of keys (words) and values (definitions) check if they key exists in the dictionary
+export const isWordValid = (word) => {
+    if (dictionary[word.toLowerCase()]) {
+        return true;
+    }
+    return false;
+}
