@@ -10,6 +10,12 @@ const DefaultLayout = ({ children }) => {
                 <h1 className="text-2xl font-mono font-semibold  text-white underline pb-2">Directory</h1>
                 <Link
                     className="py-1 px-2 text-white rounded ease-in-out duration-300 hover:bg-green-600 hover:underline"
+                    to="/case-studies"
+                >
+                    Case Studies
+                </Link>
+                <Link
+                    className="py-1 px-2 text-white rounded ease-in-out duration-300 hover:bg-green-600 hover:underline"
                     to="/projects"
                 >
                     Projects

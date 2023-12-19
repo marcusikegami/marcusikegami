@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getWordScore, isWordValid, letterGenerator } from './game';
 
-const BrainGame = () => {
+const BRAIN_GAME_0_1 = () => {
     const [score, setScore] = useState(0);
     const [letterScore, setLetterScore] = useState(0);
     const [time, setTime] = useState(0);
@@ -162,4 +162,4 @@ const BrainGame = () => {
     )
 };
 
-export default BrainGame;
+export default BRAIN_GAME_0_1;
