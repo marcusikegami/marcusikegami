@@ -13,7 +13,6 @@ const BRAIN_GAME_0_2 = () => {
 
     const startGame = () => {
         setGame(true);
-        setTime(60);
         setScore(0);
         refreshLetters();
         setInput('');
@@ -83,15 +82,24 @@ const BRAIN_GAME_0_2 = () => {
                 {!game ? (
                     <div className="flex flex-col justify-center">
                         <div className="my-3">
-                        <label className="font-mono font-semibold text-lg mt-6">Difficulty:</label>
-                        <select name="difficulty" id="difficulty-select" onChange={(e) => setDifficulty(e.target.value)}>
-                            <option value="Unset">Select a difficulty</option>
-                            <option value="3">3 letter minimum</option>
-                            <option value="4">4 letter minimum</option>
-                            <option value="5">5 letter minimum</option>
-                            <option value="6">6 letter minimum</option>
-                            <option value="7">7 letter minimum</option>
-                        </select>
+                            <label className="font-mono font-semibold text-lg mt-6">Difficulty:</label>
+                            <select name="difficulty" id="difficulty-select" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                <option value="Unset">Select a difficulty</option>
+                                <option value="3">3 letter minimum</option>
+                                <option value="4">4 letter minimum</option>
+                                <option value="5">5 letter minimum</option>
+                                <option value="6">6 letter minimum</option>
+                                <option value="7">7 letter minimum</option>
+                            </select>
+                    </div>
+                        <div className="my-3">
+                            <label className="font-mono font-semibold text-lg mt-6">Timer:</label>
+                            <select name="timer" id="timer-select" onChange={(e) => setTime(e.target.value)}>
+                                <option value="60">60"</option>
+                                <option value="45">45"</option>
+                                <option value="30">30"</option>
+                                <option value="15">15"</option>
+                            </select>
                     </div>
                     {difficulty !== "Unset" && (
                         <button onClick={startGame} className="bg-green-500 rounded-sm py-1 px-4 my-3 text-white">Start</button>
