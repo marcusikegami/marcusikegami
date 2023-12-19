@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/marcusikegami/static/css/main.1bfc610e.css",
-    "main.js": "/marcusikegami/static/js/main.fdc103d6.js",
+    "main.js": "/marcusikegami/static/js/main.4d3c6817.js",
     "static/js/787.2085a995.chunk.js": "/marcusikegami/static/js/787.2085a995.chunk.js",
     "index.html": "/marcusikegami/index.html",
     "main.1bfc610e.css.map": "/marcusikegami/static/css/main.1bfc610e.css.map",
-    "main.fdc103d6.js.map": "/marcusikegami/static/js/main.fdc103d6.js.map",
+    "main.4d3c6817.js.map": "/marcusikegami/static/js/main.4d3c6817.js.map",
     "787.2085a995.chunk.js.map": "/marcusikegami/static/js/787.2085a995.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1bfc610e.css",
-    "static/js/main.fdc103d6.js"
+    "static/js/main.4d3c6817.js"
   ]
 }
