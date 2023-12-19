@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getWordScore, isWordValid, letterGenerator } from './game';
 
 const BRAIN_GAME_0_2 = () => {
@@ -66,6 +66,11 @@ const BRAIN_GAME_0_2 = () => {
         }, 1000);
     };
 
+    useEffect(() => {
+        setTimeout(() => {
+            document.getElementById('game-input')?.focus();
+        }, 1000);
+    });
 
     return (
         <div>
@@ -99,7 +104,7 @@ const BRAIN_GAME_0_2 = () => {
                             <p className="text-lg py-3">{input}</p>
                         </div>
                         <div className="flex">
-                        <input type="text" className={`border border-gray-400 rounded-sm py-1 px-4 mx-1 ${input.length < difficulty ? 'bg-red-100' : 'bg-green-200'}`} value={input} onChange={(e) => setInput(e.target.value.toUpperCase())} onKeyDown={(e) => {
+                        <input id="game-input" type="text" className={`border border-gray-400 rounded-sm py-1 px-4 mx-1 ${input.length < difficulty ? 'bg-red-100' : 'bg-green-200'}`} value={input} onChange={(e) => setInput(e.target.value.toUpperCase())} onKeyDown={(e) => {
                             if (e.key === 'Enter' && input.length >= difficulty && isWordValid(input)) {
                                 setWordList((wordList) => [...wordList, {input: input, score: getWordScore(input)}]);
                                 setScore((score) => score + getWordScore(input));
