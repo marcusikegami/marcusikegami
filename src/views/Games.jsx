@@ -15,6 +15,7 @@ const Games = () => {
             >
                 Brain Game (v. 0.2) [Timed "Vocabulary" Test]
             </Link>
+            <p>Note: These games utilize Webster's Dictionary (EN) for word validation.</p>
         </div>
     );
 }
