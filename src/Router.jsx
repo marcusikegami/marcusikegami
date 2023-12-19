@@ -10,9 +10,8 @@ const Router = createBrowserRouter([
         element: <DefaultLayout />,
         children: [
             {
-                path: "/",
                 element: <Projects />,
-                // element: <Navigate to="/projects" />,
+                index: true,
             },
             {
                 path: "/projects",
@@ -33,6 +32,6 @@ const Router = createBrowserRouter([
         path: "*",
         element: <div>404 Page not found.</div>,
     },
-]);
+], { basename: '/marcusikegami'});
 
 export default Router;
