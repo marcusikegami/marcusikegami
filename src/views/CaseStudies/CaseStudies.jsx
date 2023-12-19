@@ -1,7 +1,10 @@
 const CaseStudies = () => {
     return (
         <div class="w-full px-8">
-        <p>Contracting</p>
+        {/* <h1>Freelancing</h1>
+
+        <h1>Contracting</h1> */}
+
         </div>
     );
 };
