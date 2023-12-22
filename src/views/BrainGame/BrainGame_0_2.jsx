@@ -4,12 +4,16 @@ import { getWordScore, isWordValid, letterGenerator } from './game';
 const BRAIN_GAME_0_2 = () => {
     const [score, setScore] = useState(0);
     const [letterScore, setLetterScore] = useState(0);
-    const [time, setTime] = useState(0);
+    const [time, setTime] = useState(60);
     const [game, setGame] = useState(false);
     const [letters, setLetters] = useState([]);
     const [input, setInput] = useState('');
+    const [difficulty, setDifficulty] = useState("3");
     const [wordList, setWordList] = useState([]);
-    const [difficulty, setDifficulty] = useState("Unset");
+    const [history, setHistory] = useState(() => {
+        const localData = localStorage.getItem('game_history');
+        return localData || [];
+    });
 
     const startGame = () => {
         setGame(true);
@@ -65,11 +69,21 @@ const BRAIN_GAME_0_2 = () => {
         }, 1000);
     };
 
+    //focus on the input field when the game starts
     useEffect(() => {
-        setTimeout(() => {
-            document.getElementById('game-input')?.focus();
-        }, 1000);
-    });
+        if (game) {
+            document.getElementById('game-input').focus();
+        }
+    }, [game]);
+
+    // update the game history when the state changes
+    useEffect(() => {
+        const gameHistory = [...history];
+        // day month year and time as 00:00
+        const date = new Date().toLocaleString('en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric'});
+        gameHistory.push({date: date, score: score, wordList: wordList});
+        localStorage.setItem('game_history', JSON.stringify(gameHistory));
+    }, [wordList]);
 
     return (
         <div>
@@ -155,6 +169,22 @@ const BRAIN_GAME_0_2 = () => {
                     <ul>
                         {wordList.map((word) => (
                             <li key={word.input}>{word.input} - {word.score}</li>
+                        ))}
+                    </ul>
+                </section>
+                <section className="h-[25vh] overflow-y-scroll">
+                    <h2 className="font-mono font-semibold text-lg mt-3">Game History</h2>
+                    <ul>
+                        {history.map((game, index) => (
+                            <li key={index}>
+                                <p>{game.date}</p>
+                                <p>Score: {game.score}</p>
+                                <ul>
+                                    {game.wordList.map((word, index) => (
+                                        <li key={index}>{word.input} - {word.score}</li>
+                                    ))}
+                                </ul>
+                            </li>
                         ))}
                     </ul>
                 </section>
