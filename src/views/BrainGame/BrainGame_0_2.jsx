@@ -66,15 +66,7 @@ const BRAIN_GAME_0_2 = () => {
         discardBtn.classList.add('hidden');
         setTimeout(() => {
             discardBtn.classList.remove('hidden');
-        }, 1000);
-    };
-
-    //focus on the input field when the game starts
-    useEffect(() => {
-        if (game) {
-            document.getElementById('game-input').focus();
-        }
-    }, [game]);
+        }, 
 
     // update the game history when the state changes
     useEffect(() => {
