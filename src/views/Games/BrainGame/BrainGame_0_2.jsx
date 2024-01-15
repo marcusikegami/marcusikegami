@@ -11,8 +11,9 @@ const BRAIN_GAME_0_2 = () => {
     const [difficulty, setDifficulty] = useState("3");
     const [wordList, setWordList] = useState([]);
     const [history, setHistory] = useState(() => {
-        const localData = localStorage.getItem('game_history');
-        return localData || [];
+        const localData = localStorage.getItem('game_history') || [];
+
+        return localData ? JSON.parse(localData) : [];
     });
 
     const startGame = () => {
@@ -66,7 +67,8 @@ const BRAIN_GAME_0_2 = () => {
         discardBtn.classList.add('hidden');
         setTimeout(() => {
             discardBtn.classList.remove('hidden');
-        }, 
+        }, 1000);
+    };
 
     // update the game history when the state changes
     useEffect(() => {
@@ -167,7 +169,7 @@ const BRAIN_GAME_0_2 = () => {
                 <section className="h-[25vh] overflow-y-scroll">
                     <h2 className="font-mono font-semibold text-lg mt-3">Game History</h2>
                     <ul>
-                        {history.map((game, index) => (
+                        {history ? (history.map((game, index) => (
                             <li key={index}>
                                 <p>{game.date}</p>
                                 <p>Score: {game.score}</p>
@@ -177,7 +179,9 @@ const BRAIN_GAME_0_2 = () => {
                                     ))}
                                 </ul>
                             </li>
-                        ))}
+                        ))) : (
+                            <p>No games played yet</p>
+                        )}
                     </ul>
                 </section>
                 </div>
